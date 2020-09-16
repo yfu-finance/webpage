@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  </head>
+  <body>
+  <div class="container" style="display: flex; height: 100px;">
+    <div style="width: 512px">
+      <form action=" https://api.waifulabs.com/generate_big" id="searchForm1">
+        <input type="text" name="s1" placeholder="Pose?">
+        <input type="text" name="s2" value="111111" placeholder="filler?...">
+        <input type="text" name="s3" value="111111" placeholder="filler?...">
+        <input type="text" name="s4" value="111111" placeholder="filler?...">
+        <input type="text" name="s5" placeholder="Face?..">
+        <input type="text" name="s6" value="111111" placeholder="filler?...">
+        <input type="text" name="s7" value="111111" placeholder="filler?...">
+        <input type="text" name="s8" value="111111" placeholder="filler?...">
+        <input type="text" name="s9" value="111111" placeholder="filler?...">
+        <input type="text" name="s10" value="111111" placeholder="filler?...">
+        <input type="text" name="s11" value="111111" placeholder="filler?...">
+        <input type="text" name="s12" value="111111" placeholder="filler?...">
+        <input type="text" name="s13" placeholder="Tones?...">
+        <input type="text" name="s14" value="111111" value="111111" placeholder="filler?...">
+        <input type="text" name="s15" value="111111" placeholder="filler?...">
+        <input type="text" name="s16" value="111111" placeholder="filler?...">
+        <input type="submit" value="Search1">
+      </form>
+      <!-- the result of the search will be rendered inside this div -->
+      <div id="result1"></div>
+    </div>
+  </div>
+
+  <script>
+
+    function POST(url, data) {
+        //alert("post")
+        return $.ajax({
+            method : "POST",
+            async: false,
+            url : url,
+            data : data,
+            datatype: 'application/json',
+            crossDomain: true,
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Accept","application/json");
+             xhrObj.setRequestHeader("Access-Control-Allow-Headers","x-requested-with");
+            },
+            success : function(msg) {
+                //alert('in success');
+                //alert(msg);
+                return msg;
+            },
+            error : function (xhr, status, error) {
+                //alert(JSON.stringify(xhr));
+                return 'error';
+            }
+        });
+    }
+
+  $( "#searchForm1" ).submit(function( event ) {
+
+    // Stop form from submitting normally
+    event.preventDefault();
+
+    // Get some values from elements on the page:
+    var $form = $( this ),
+      term1 = $form.find( "input[name='s1']" ).val(),
+      term2 = $form.find( "input[name='s2']" ).val(),
+      term3 = $form.find( "input[name='s3']" ).val(),
+      term4 = $form.find( "input[name='s4']" ).val(),
+      term5 = $form.find( "input[name='s5']" ).val(),
+      term6 = $form.find( "input[name='s6']" ).val(),
+      term7 = $form.find( "input[name='s7']" ).val(),
+      term8 = $form.find( "input[name='s8']" ).val(),
+      term9 = $form.find( "input[name='s9']" ).val(),
+      term10 = $form.find( "input[name='s10']" ).val(),
+      term11 = $form.find( "input[name='s11']" ).val(),
+      term12 = $form.find( "input[name='s12']" ).val(),
+      term13 = $form.find( "input[name='s13']" ).val(),
+      term14 = $form.find( "input[name='s14']" ).val(),
+      term15 = $form.find( "input[name='s15']" ).val(),
+      term16 = $form.find( "input[name='s16']" ).val(),
+
+      url = $form.attr( "action" );
+    var dataIn = '{"currentGirl":['+term1+','+term2+','+term3+','+term4+','+term5+','+term6+','+term7+','+term8+','+term9+','+term10+','+term11+','+term12+','+term13+','+term14+','+term15+','+term16+',0,[0.1,0.1,121.0075]],"step":1,"size":512}'
+    //var dataIn = '{"currentGirl":[227513,227513,227513,227513,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+    //var dataIn = '{"currentGirl":[227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+
+    //var dataIn = '{"currentGirl":[329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+    //alert(dataIn);
+    // Send the data using post
+    var posting = POST( url, dataIn);
+    //alert(posting)
+    // Put the results in a div
+    posting.done(function( data ) {
+      var content = $.parseJSON(data)
+      var image = new Image();
+      image.src = 'data:image/png;base64,'+content['girl'] ;
+      //document.body.appendChild(image);
+      $( "#result1" ).empty().append(image );
+    });
+  });
+
+  </script>
+
+  </body>
+</html>
