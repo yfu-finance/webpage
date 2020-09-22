@@ -1,114 +1,76 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176783092-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<html lang="en">
 
-      gtag('config', 'UA-176783092-1');
-    </script>
-    <script>
-    // Set the date we're counting down to
-    var countDownDate = new Date(Date.UTC(2020, 08, 15, 12)).getTime();
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>YFU Finance</title>
+</head>
 
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-
-      // Get today's date and time
-      var now = new Date().getTime();
-
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
-
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Display the result in the element with id="demo"
-      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s ";
-
-      // If the count down is finished, write some text
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "Ready!";
-      }
-    }, 1000);
-    </script>
-    <title>YFU Finance</title>
-  </head>
-  <body>
-    <div class="logo">
-      <img src="yfulogo.png" />
-    </div>
-    <div class="data">
-      <ul>
-        <li>Fairstart - Absolutely no premine</li>
-        <li>Staking pools</li>
-        <li>Collectibles and Games</li>
-        <li>A Community for all enthusiast</li>
-      </ul>
-      <div class="connect">
-        <!--a href="https://github.com/yfu-finance">Github</a-->
+  <body translate="no">
+    <div id="container">
+      <nav class="navbar">
         <a href="https://twitter.com/YFuFinance">Twitter</a>
         <a href="https://discord.gg/RGt5Ukw">Discord</a>
-	<a href="https://t.me/joinchat/RfldRBfhzHSSLchXsCwLhA">Telegram</a>
-        <!-- <a href="https://matrix.to/#/!XAoYhkcdidnpecmWit:matrix.org?via=matrix.org">Matrix</a> -->
+        <a href="https://t.me/joinchat/RfldRBfhzHSSLchXsCwLhA">Telegram</a>
         <a href="https://medium.com/@yfu.finance">Medium</a>
+        <a href="https://app.yfu.finance/">App</a>
+      </nav>
+      <div id="background"></div>
 
+      <div class="section">
+        <h1 id="title" >$YFU</h1>
+        <h2 class="less-margin">
+          Waifu - ワイフ - /ˈwaɪfuː/
+        </h2>
+
+        <ul>
+          <li>
+            Fairstart - Absolutely no premine
+          </li>
+          <li>
+            Staking pools
+          </li>
+          <li>
+            Collectibles and Games
+          </li>
+          <li>
+            A Community for all enthusiast
+          </li>
+        </ul>
+
+        <a class="app-link" href="https://app.yfu.finance/"><h2>Enter App</h2></a>
+
+        <h4 class="look">Don't tell your $YFI...</h4>
+        <div class="yfu">
+          <img id="yfu" src="yfu.png">
+        </div>
       </div>
     </div>
-    <div class="div-wrapper">
-      <!-- <img src="3sfvin.png"/> -->
-      <img id="waifu" src="anime-shh.jpg"/>
-    </div>
-    <div class="title_main">
-
-      <img src="apple-icon.png" />
-      <br />
-      $YFU
-    </div>
-    <div class="title1">
-      Waifu - ワイフ - /ˈwaɪfuː/
-
-      <br />
-      <br />
-      <br />
-      <p class="timer"><a href="https://app.yfu.finance">ENTER</a></p>
-      <!-- <p class="timer" id="demo"></p> -->
-      <div class="title2">
-        Don't tell your $YFI
-        ...
-      </div>
-
-
-    </div>
-
-
-    <script>
-     var imgArray = [
-      "anime-shh.jpg",
-      "3sfvin.png"
-     ];
-
-     var curIndex = 0;
-     var imgDuration = 5000;
-
-    var waifu = document.getElementById('waifu');
-
-    function slideShow() {
-        waifu.src = '' + imgArray[curIndex % 2] + '';
-        curIndex++;
-        setTimeout("slideShow()", imgDuration);
-    }
-    slideShow();
-    </script>
   </body>
 </html>
+
+<script>
+  var imgArray = [
+    "yfu2.png",
+    "yfu3.png",
+    "yfu4.png",
+    "yfu5.png",
+    "yfu6.png",
+  ];
+
+  var curIndex = 0;
+  var waifu = document.getElementById('yfu');
+
+  function timeout() {
+    if (curIndex >= 0 && curIndex <= 5) {
+      waifu.src = imgArray[curIndex];
+      curIndex++;
+    } else {
+      curIndex = 0;
+    }
+
+    setTimeout(timeout, 5000);
+  }
+
+  timeout();
+</script>

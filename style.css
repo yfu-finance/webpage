@@ -1,90 +1,250 @@
-.logo {
-      position: absolute;
-      height: 500px;
-      width: 500px;
-      top: 0;
-      left: 0;
-  }
+    @import url("https://fonts.googleapis.com/css?family=Work+Sans:800|Open+Sans");
 
-  .logo img {
+    body {
+      background: #EDEDED;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a {
+      cursor: pointer;
+    }
+
+    #container {
+      height: 600px;
+      width: 900px;
+      position: relative;
+      box-shadow: 4px 10px 20px rgba(55, 52, 73, 0.4);
+    }
+
+    #background {
+      position: fixed;
+      bottom: 0px;
+      right: 0px;
+      width: 50%;
+      height: 100%;
+      background: #e96a43;
+      -webkit-clip-path: polygon(52% 0, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(52% 0, 100% 0, 100% 100%, 0% 100%);
       z-index: -1;
-      max-width: 150px;
-      max-height: 100%;
-  }
-.div-wrapper {
-      position: absolute;
-      height: 500px;
-      width: 500px;
-      bottom: 0;
-      right: 0%;
-  }
+      transition: all .8s ease;
+    }
 
-  .div-wrapper img {
+    nav {
+      display: block;
+      float: right;
+      margin: 1em;
+      margin-top: 2.4em;
+      font-family: "Open Sans", sans-serif;
+      font-size: 11px;
+    }
+
+    .navbar a {
+      padding: 10px;
+      margin-left: 10px;
+      border-radius: 25px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #373449;
+    }
+
+    .navbar a:hover {
+      background: #FFDC7B;
+      padding: 10px;
+      border-radius: 25px;
+      transition: all .5s ease;
+    }
+
+    .navbar a:last-child {
+      background: #373449;
+      color: #FFDC7B;
+      padding: 10px;
+      border-radius: 25px;
+    }
+
+    .navbar a:last-child:hover {
+      color: #373449;
+      background: #FFDC7B;
+      transition: all .5s ease;
+    }
+
+    .section {
       position: absolute;
-      left: 0;
-      bottom: 0;
+      margin-top: 5%;
+      margin-left: 5%;
+      width: 100%;
+      height: 80%;
+    }
+
+    .button {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      transition: all 1s ease;
+    }
+
+    .rosegold {
+      background: #CE8C91;
+    }
+
+    .coral {
+      background: #FF7A6C;
+      left: 35px;
+    }
+
+    .fuschia {
+      background: #A24868;
+      left: 70px;
+    }
+
+    .black {
+      background: #373449;
+      left: 105px;
+    }
+
+    h1 {
+      font-family: "Work Sans", sans-serif;
+      color: #e96a43;
+      text-transform: uppercase;
+      font-size: 3.5em;
+    }
+
+    #title {
+      transition: all 1s ease;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-family: "Open Sans", sans-serif;
+      color: #373449;
+    }
+
+    h4 {
+      text-transform: uppercase;
+      margin-right: -100px;
+      font-family: "Open Sans", sans-serif;
+      color: #373449;
+    }
+
+    p {
+      font-family: "Open Sans", sans-serif;
+      font-size: .8em;
+      letter-spacing: 2px;
+      display: inline-block;
+      padding: 0 45px;
+      text-transform: uppercase;
+      color: #373449;
+    }
+
+    #desc {
+      position: absolute;
+      top: 77%;
+    }
+
+    .look {
+      position: absolute;
+      color: #EDEDED;
+      opacity: .4;
+      right: 5px;
+      top: 185px;
+      font-size: 2.3em;
+      white-space: nowrap;
+      transform: rotate(90deg);
+    }
+
+    .highlight {
+      background-color: #FFDC7B;
+    }
+
+    .margin-top {
+      margin-top: 135px;
+    }
+
+    .less-margin {
+      margin-top: -35px;
+    }
+
+    .yfu img {
+      height: 370px;
+      position: absolute;
+      top: 50px;
+      right: 140px;
       z-index: -1;
-      max-width: 100%;
-      max-height: 100%;
-  }
-.title_main {
-    margin: auto;
-    width: 50%;
-    color: #2C2C2C;
-    padding-top: 10%;
-    z-index: 1000;
-    font-size: 65px;
-    text-align: center;
-    font-family: Impact, Charcoal, sans-serif;
-  }
-.title_main img{
-    width: 100px;
-    height: auto;
-    border-radius: 50%;
-    border-color: #2C2C2C;
-     border-style: solid;
+    }
 
-}
- .title1 {
-   margin: auto;
-   width: 50%;
-   color: #2C2C2C;
-   text-align: center;
+    #yfu img {
+      transition: all 1s ease;
+    }
 
-   padding-top: 15px;
-   z-index: 1000;
-   font-size: 35px;
-   font-family: Impact, Charcoal, sans-serif;
- }
- .title2 {
-   margin: auto;
-   width: 50%;
-   text-align: left;
-   color: #e05050;
-   padding-top: 15%;
-   z-index: 1000;
-   font-size: 45px;
-   font-family: Impact, Charcoal, sans-serif;
- }
- .data {
-   position:  absolute;
-   margin-top: 25%;
-   left: 10px;
-   text-align: left;
-   color: #5c5c5c;
-   font-family: Impact, Charcoal, sans-serif;
+    li {
+      font-size: 22px;
+      font-family: "Open Sans", sans-serif;
+    }
 
- }
-.data li {
-  list-style-type: '* ';
-  font-size: 25px;
-}
- .connect a{
-   font-size: 20px;
-   text-align: center;
-   color: #e05050;
-   margin-left: 20px;
- }
- .timer {
-   color: #ea5c30
- }
+    .app-link {
+      padding:40px;
+    }
+
+    @media only screen and (max-width: 400px) {
+      .navbar {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      #container {
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+      }
+      
+      #yfu {
+        position: inherit;
+        top: 0;
+        right: 0;
+      }
+
+      .yfu {
+        display: flex;
+        justify-content: center;
+      }
+
+      .navbar {
+        display: inherit;
+        float:none
+      }
+
+      .section {
+        margin: 0;
+      }
+
+      .look {
+        position: relative;
+        transform: none;
+        color: black;
+        opacity: 1;
+        right: 0;
+        top: 0;
+        font-size: 2em;
+        white-space: nowrap;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .navbar a {
+        font-size: 1em;
+      }
+    }
