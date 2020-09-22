@@ -56,14 +56,13 @@
     "yfu4.png",
     "yfu5.png",
     "yfu6.png",
-    "yfu.png"
   ];
 
   var curIndex = 0;
   var waifu = document.getElementById('yfu');
 
   function timeout() {
-    if (curIndex >= 0 && curIndex <= 6) {
+    if (curIndex >= 0 && curIndex <= 5) {
       waifu.src = imgArray[curIndex];
       curIndex++;
     } else {
