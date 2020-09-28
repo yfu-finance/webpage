@@ -48,6 +48,7 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       color: #373449;
+      font-size: large;
     }
 
     .navbar a:hover {
@@ -57,14 +58,27 @@
       transition: all .5s ease;
     }
 
-    .navbar a:last-child {
-      background: #373449;
-      color: #FFDC7B;
+    .enter-app {
       padding: 10px;
+      margin-left: 10px;
       border-radius: 25px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #373449;
+      margin: 3rem 2rem;
+      width: 10rem;
     }
 
-    .navbar a:last-child:hover {
+    .enter-app a {
+      background: #373449;
+      color: #FFDC7B;
+      padding: 0.5rem 3rem;
+      border-radius: 25px;
+      text-decoration: none;
+    }
+
+    .enter-app a:hover {
       color: #373449;
       background: #FFDC7B;
       transition: all .5s ease;
