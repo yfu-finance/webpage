@@ -251,6 +251,8 @@
       }
 
       #background {
+        -webkit-clip-path: polygon(60% 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(60% 0, 100% 0, 100% 100%, 0% 100%);
         width: 60%;
         z-index: -10;
         transition: none;
