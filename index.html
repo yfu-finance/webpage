@@ -1,7 +1,11 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <title>YFU Finance</title>
 </head>
@@ -13,12 +17,11 @@
         <a href="https://discord.gg/RGt5Ukw">Discord</a>
         <a href="https://t.me/joinchat/RfldRBfhzHSSLchXsCwLhA">Telegram</a>
         <a href="https://medium.com/@yfu.finance">Medium</a>
-        <a href="https://app.yfu.finance/">App</a>
       </nav>
       <div id="background"></div>
 
       <div class="section">
-        <h1 id="title" >$YFU</h1>
+        <img id="title" src="assets/images/yfulogo.png" />
         <h2 class="less-margin">
           Waifu - ワイフ - /ˈwaɪfuː/
         </h2>
@@ -37,41 +40,33 @@
             A Community for all enthusiast
           </li>
         </ul>
+        <dev class="enter-app">
+          <a href="https://app.yfu.finance/">
+            App
+          </a>
+        </dev>
 
-        <a class="app-link" href="https://app.yfu.finance/"><h2>Enter App</h2></a>
+        <div class="info">
+          <a class="info-icon" href="https://etherscan.io/token/0xa279dab6ec190eE4Efce7Da72896EB58AD533262">
+            <img src="assets/images/info/etherscan.png" />
+          </a>
+          <a class="info-icon" href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0xa279dab6ec190eE4Efce7Da72896EB58AD533262">
+            <img src="assets/images/info/uniswap.png" />
+          </a> 
+          <a class="info-icon" href="https://www.dextools.io/app/uniswap/pair-explorer/0xa9e98dc206f21fa0992ec640ba37ab4f62b223e9">
+            <img src="assets/images/info/dextools.png" />
+          </a>
+          <a class="info-icon" href="https://github.com/yfu-finance">
+            <img src="assets/images/info/github.png" />
+          </a>
+        </div>
 
         <h4 class="look">Don't tell your $YFI...</h4>
         <div class="yfu">
-          <img id="yfu" src="yfu.png">
+          <img id="yfu" src="assets/images/yfu.png">
         </div>
       </div>
     </div>
   </body>
 </html>
-
-<script>
-  var imgArray = [
-    "yfu.png",
-    "yfu2.png",
-    "yfu3.png",
-    "yfu4.png",
-    "yfu5.png",
-    "yfu6.png",
-  ];
-
-  var curIndex = 0;
-  var waifu = document.getElementById('yfu');
-
-  function timeout() {
-    if (curIndex >= 0 && curIndex <= 5) {
-      waifu.src = imgArray[curIndex];
-      curIndex++;
-    } else {
-      curIndex = 0;
-    }
-
-    setTimeout(timeout, 5000);
-  }
-
-  timeout();
-</script>
+<script src="assets/js/main.js"></script>
