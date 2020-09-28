@@ -198,8 +198,9 @@
       z-index: -1;
     }
 
-    #yfu img {
-      transition: all 1s ease;
+    #yfu {
+      border: 3px solid white;
+      border-radius: 50%;
     }
 
     li {
