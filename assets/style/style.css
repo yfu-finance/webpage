@@ -32,8 +32,7 @@
       background: #ea5c30;
       -webkit-clip-path: polygon(52% 0, 100% 0, 100% 100%, 0% 100%);
       clip-path: polygon(52% 0, 100% 0, 100% 100%, 0% 100%);
-      z-index: -1;
-      transition: all .8s ease;
+      z-index: -10;
     }
 
     nav {
