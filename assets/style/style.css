@@ -82,6 +82,7 @@
       color: #FFDC7B;
       padding: 0.5rem 2rem;
       border-radius: 25px;
+      height: 25px;
       text-decoration: none;
     }
 
@@ -245,6 +246,12 @@
 
       body {
         width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .info {
+        margin: 2rem 0;
       }
       
       .enter-app {
@@ -266,6 +273,7 @@
       .yfu {
         display: flex;
         justify-content: center;
+        z-index: 10;
       }
 
       .navbar {
@@ -277,6 +285,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 0;
+        margin-left: 0;
       }
 
 
