@@ -195,7 +195,7 @@
       position: absolute;
       top: 50px;
       right: 140px;
-      z-index: -1;
+      z-index: 1;
     }
 
     #yfu {
