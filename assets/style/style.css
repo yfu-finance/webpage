@@ -32,8 +32,7 @@
       background: #ea5c30;
       -webkit-clip-path: polygon(52% 0, 100% 0, 100% 100%, 0% 100%);
       clip-path: polygon(52% 0, 100% 0, 100% 100%, 0% 100%);
-      z-index: -1;
-      transition: all .8s ease;
+      z-index: -10;
     }
 
     nav {
@@ -82,6 +81,7 @@
       color: #FFDC7B;
       padding: 0.5rem 2rem;
       border-radius: 25px;
+      height: 25px;
       text-decoration: none;
     }
 
@@ -245,6 +245,20 @@
 
       body {
         width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      #background {
+        -webkit-clip-path: polygon(60% 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(60% 0, 100% 0, 100% 100%, 0% 100%);
+        width: 60%;
+        z-index: -10;
+        transition: unset;
+      }
+
+      .info {
+        margin: 2rem 0;
       }
       
       .enter-app {
@@ -266,6 +280,8 @@
       .yfu {
         display: flex;
         justify-content: center;
+        z-index: 10;
+        margin: 2rem 0;
       }
 
       .navbar {
@@ -277,6 +293,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 0;
+        margin-left: 0;
       }
 
 
