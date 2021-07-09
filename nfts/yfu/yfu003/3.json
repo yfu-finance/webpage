@@ -1,0 +1,15 @@
+{
+  "description": "YFU003",
+  "image": "https://yfu.finance/nfts/yfu/yfu003/YFU003.png",
+  "name": "YFU003",
+  "attributes": [
+    {
+      "trait_type": "Generation",
+      "value": "1"
+    },
+    {
+      "trait_type": "Supply",
+      "value": "1 of 1"
+    }
+  ]
+}

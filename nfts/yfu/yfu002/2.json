@@ -1,0 +1,19 @@
+{
+  "description": "YFU002",
+  "image": "https://yfu.finance/nfts/yfu/yfu001/YFU002.png",
+  "name": "YFU002",
+  "attributes": [
+    {
+      "trait_type": "Physically redeemed",
+      "value": "false"
+    },
+    {
+      "trait_type": "Generation",
+      "value": "1"
+    },
+    {
+      "trait_type": "Supply",
+      "value": "1 of 1"
+    }
+  ]
+}

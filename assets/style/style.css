@@ -12,6 +12,11 @@
       margin-bottom: 4rem;
     }
 
+    #small-title {
+      width: 50px;
+      margin-top: -1.2rem;
+    }
+
     a {
       cursor: pointer;
     }
@@ -198,9 +203,37 @@
       z-index: 1;
     }
 
+    .yfu-left img {
+      max-height: 70%;
+      max-width: 50%;
+      position: absolute;
+      top: 30%;
+      left:0px;
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .yfu-right img {
+      max-height: 70%;
+      max-width: 50%;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      z-index: 1;
+      border-radius: 50%;
+    }
+
     #yfu {
       border: 3px solid white;
       border-radius: 50%;
+    }
+
+    .message {
+      top: 15%;
+      left: 1%;
+      right: 1%;
+      position: absolute;
+      text-align: center;
     }
 
     li {

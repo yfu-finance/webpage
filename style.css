@@ -120,6 +120,11 @@
       transition: all 1s ease;
     }
 
+    .small {
+      width: 150px !important;
+      margin-top: -1.2rem;
+    }
+
     h2 {
       font-size: 1.2em;
       text-transform: uppercase;
