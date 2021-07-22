@@ -1,164 +1,183 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en"
+      dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title></title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   </head>
+
   <body>
-  <div class="container" style="display: flex; height: 100px;">
-    <div style="width: 512px">
-      <form action=" https://api.waifulabs.com/generate_big" id="searchForm1">
-        <input type="text" name="s1" placeholder="Search...">
-        <input type="submit" value="waifu 1">
-      </form>
-      <!-- the result of the search will be rendered inside this div -->
-      <div id="result1"></div>
-    </div>
-    <div style="width: 512px">
-      <form action=" https://api.waifulabs.com/generate_big" id="searchForm2">
-        <input type="text" name="a2" placeholder="amount">
+    <div class="container"
+         style="display: flex; height: 100px;">
+      <div style="width: 512px">
+        <form action=" https://api.waifulabs.com/generate_big"
+              id="searchForm1">
+          <input type="text"
+                 name="s1"
+                 placeholder="Search...">
+          <input type="submit"
+                 value="waifu 1">
+        </form>
+        <!-- the result of the search will be rendered inside this div -->
+        <div id="result1"></div>
+      </div>
+      <div style="width: 512px">
+        <form action=" https://api.waifulabs.com/generate_big"
+              id="searchForm2">
+          <input type="text"
+                 name="a2"
+                 placeholder="amount">
 
-        <input type="submit" value="% in decimals">
-      </form>
-      <!-- the result of the search will be rendered inside this div -->
-      <div id="result2"></div>
+          <input type="submit"
+                 value="% in decimals">
+        </form>
+        <!-- the result of the search will be rendered inside this div -->
+        <div id="result2"></div>
+      </div>
+      <div style="width: 512px">
+        <form action=" https://api.waifulabs.com/generate_big"
+              id="searchForm3">
+          <input type="text"
+                 name="s3"
+                 placeholder="Search...">
+          <input type="submit"
+                 value="waifu 2">
+        </form>
+        <!-- the result of the search will be rendered inside this div -->
+        <div id="result3"></div>
+      </div>
     </div>
-    <div style="width: 512px">
-      <form action=" https://api.waifulabs.com/generate_big" id="searchForm3">
-        <input type="text" name="s3" placeholder="Search...">
-        <input type="submit" value="waifu 2">
-      </form>
-      <!-- the result of the search will be rendered inside this div -->
-      <div id="result3"></div>
-    </div>
-  </div>
 
-  <script>
-
-    function POST(url, data) {
+    <script>
+      function POST(url, data) {
         //alert("post")
         return $.ajax({
-            method : "POST",
-            async: false,
-            url : url,
-            data : data,
-            datatype: 'application/json',
-            crossDomain: true,
-            beforeSend: function(xhrObj){
-                xhrObj.setRequestHeader("Content-Type","application/json");
-                xhrObj.setRequestHeader("Accept","application/json");
-             xhrObj.setRequestHeader("Access-Control-Allow-Headers","x-requested-with");
-            },
-            success : function(msg) {
-                //alert('in success');
-                //alert(msg);
-                return msg;
-            },
-            error : function (xhr, status, error) {
-                //alert(JSON.stringify(xhr));
-                return 'error';
-            }
+          method: "POST",
+          async: false,
+          url: url,
+          data: data,
+          datatype: 'application/json',
+          crossDomain: true,
+          beforeSend: function (xhrObj) {
+            xhrObj.setRequestHeader("Content-Type", "application/json");
+            xhrObj.setRequestHeader("Accept", "application/json");
+            xhrObj.setRequestHeader("Access-Control-Allow-Headers", "x-requested-with");
+          },
+          success: function (msg) {
+            //alert('in success');
+            //alert(msg);
+            return msg;
+          },
+          error: function (xhr, status, error) {
+            //alert(JSON.stringify(xhr));
+            return 'error';
+          }
         });
-    }
-
-  $( "#searchForm1" ).submit(function( event ) {
-
-    // Stop form from submitting normally
-    event.preventDefault();
-
-    // Get some values from elements on the page:
-    var $form = $( this ),
-      term = $form.find( "input[name='s1']" ).val(),
-      url = $form.attr( "action" );
-    var dataIn = '{"currentGirl":['+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+',0,[0.1,0.1,121.0075]],"step":1,"size":512}'
-    //var dataIn = '{"currentGirl":[227513,227513,227513,227513,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
-    //var dataIn = '{"currentGirl":[227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
-
-    //var dataIn = '{"currentGirl":[329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
-    //alert(dataIn);
-    // Send the data using post
-    var posting = POST( url, dataIn);
-    //alert(posting)
-    // Put the results in a div
-    posting.done(function( data ) {
-      var content = $.parseJSON(data)
-      var image = new Image();
-      image.src = 'data:image/png;base64,'+content['girl'] ;
-      //document.body.appendChild(image);
-      $( "#result1" ).empty().append(image );
-    });
-  });
-  $( "#searchForm2" ).submit(function( event ) {
-
-    // Stop form from submitting normally
-    event.preventDefault();
-
-    // Get some values from elements on the page:
-    var $form = $( this ),
-      term1 = $( "#searchForm1" ).find( "input[name='s1']" ).val(),
-      term2 = $( "#searchForm3" ).find( "input[name='s3']" ).val(),
-
-      amount = $form.find( "input[name='a2']" ).val(),
-      url = $form.attr( "action" );
-      //16 set
-    var amCalc = Math.round(16*amount)
-    var vals = ""
-    for (let i = 0; i < 16; i++) {
-      if(i < amCalc){
-        vals = vals + term1 + ',';
       }
-      else {
-        vals = vals + term2+ ',';
 
-      }
-    }
-    var dataIn = '{"currentGirl":['+vals+'0,[198.365, 177.485, 193.045]],"step":1,"size":512}'
-    //var dataIn = '{"currentGirl":[227513,227513,227513,227513,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
-    //var dataIn = '{"currentGirl":[227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+      $("#searchForm1").submit(function (event) {
 
-    //var dataIn = '{"currentGirl":[ ,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
-    //alert(dataIn);
-    // Send the data using post
-    var posting = POST( url, dataIn);
-    //alert(posting)
-    // Put the results in a div
-    posting.done(function( data ) {
-      var content = $.parseJSON(data)
-      var image = new Image();
-      image.src = 'data:image/png;base64,'+content['girl'] ;
-      //document.body.appendChild(image);
-      $( "#result2" ).empty().append(image );
-    });
-  });
-  $( "#searchForm3" ).submit(function( event ) {
+        // Stop form from submitting normally
+        event.preventDefault();
 
-    // Stop form from submitting normally
-    event.preventDefault();
+        // Get some values from elements on the page:
+        var $form = $(this),
+          term = $form.find("input[name='s1']").val(),
+          url = $form.attr("action");
+        var dataIn = '{"currentGirl":[' + term + ',' + term + ',' + term + ',' + term + ',' + term + ',' + term +
+          ',' + term + ',' + term + ',' + term + ',' + term + ',' + term + ',' + term + ',' + term + ',' + term +
+          ',' + term + ',' + term + ',0,[0.1,0.1,121.0075]],"step":1,"size":512}'
+        //var dataIn = '{"currentGirl":[227513,227513,227513,227513,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+        //var dataIn = '{"currentGirl":[227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
 
-    // Get some values from elements on the page:
-    var $form = $( this ),
-      term = $form.find( "input[name='s3']" ).val(),
-      url = $form.attr( "action" );
-    var dataIn = '{"currentGirl":['+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+','+term+',0,[131.5,105.08,121.0075]],"step":1,"size":512}'
-    //var dataIn = '{"currentGirl":[227513,227513,227513,227513,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
-    //var dataIn = '{"currentGirl":[227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+        //var dataIn = '{"currentGirl":[329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+        //alert(dataIn);
+        // Send the data using post
+        var posting = POST(url, dataIn);
+        //alert(posting)
+        // Put the results in a div
+        posting.done(function (data) {
+          var content = $.parseJSON(data)
+          var image = new Image();
+          image.src = 'data:image/png;base64,' + content['girl'];
+          //document.body.appendChild(image);
+          $("#result1").empty().append(image);
+        });
+      });
+      $("#searchForm2").submit(function (event) {
 
-    //var dataIn = '{"currentGirl":[329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
-    //alert(dataIn);
-    // Send the data using post
-    var posting = POST( url, dataIn);
-    //alert(posting)
-    // Put the results in a div
-    posting.done(function( data ) {
-      var content = $.parseJSON(data)
-      var image = new Image();
-      image.src = 'data:image/png;base64,'+content['girl'] ;
-      //document.body.appendChild(image);
-      $( "#result3" ).empty().append(image );
-    });
-  });
-  </script>
+        // Stop form from submitting normally
+        event.preventDefault();
+
+        // Get some values from elements on the page:
+        var $form = $(this),
+          term1 = $("#searchForm1").find("input[name='s1']").val(),
+          term2 = $("#searchForm3").find("input[name='s3']").val(),
+
+          amount = $form.find("input[name='a2']").val(),
+          url = $form.attr("action");
+        //16 set
+        var amCalc = Math.round(16 * amount)
+        var vals = ""
+        for (let i = 0; i < 16; i++) {
+          if (i < amCalc) {
+            vals = vals + term1 + ',';
+          } else {
+            vals = vals + term2 + ',';
+
+          }
+        }
+        var dataIn = '{"currentGirl":[' + vals + '0,[198.365, 177.485, 193.045]],"step":1,"size":512}'
+        //var dataIn = '{"currentGirl":[227513,227513,227513,227513,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+        //var dataIn = '{"currentGirl":[227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+
+        //var dataIn = '{"currentGirl":[ ,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+        //alert(dataIn);
+        // Send the data using post
+        var posting = POST(url, dataIn);
+        //alert(posting)
+        // Put the results in a div
+        posting.done(function (data) {
+          var content = $.parseJSON(data)
+          var image = new Image();
+          image.src = 'data:image/png;base64,' + content['girl'];
+          //document.body.appendChild(image);
+          $("#result2").empty().append(image);
+        });
+      });
+      $("#searchForm3").submit(function (event) {
+
+        // Stop form from submitting normally
+        event.preventDefault();
+
+        // Get some values from elements on the page:
+        var $form = $(this),
+          term = $form.find("input[name='s3']").val(),
+          url = $form.attr("action");
+        var dataIn = '{"currentGirl":[' + term + ',' + term + ',' + term + ',' + term + ',' + term + ',' + term +
+          ',' + term + ',' + term + ',' + term + ',' + term + ',' + term + ',' + term + ',' + term + ',' + term +
+          ',' + term + ',' + term + ',0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+        //var dataIn = '{"currentGirl":[227513,227513,227513,227513,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+        //var dataIn = '{"currentGirl":[227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,227513,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+
+        //var dataIn = '{"currentGirl":[329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,329706,0,[131.5,105.08,121.0075]],"step":1,"size":512}'
+        //alert(dataIn);
+        // Send the data using post
+        var posting = POST(url, dataIn);
+        //alert(posting)
+        // Put the results in a div
+        posting.done(function (data) {
+          var content = $.parseJSON(data)
+          var image = new Image();
+          image.src = 'data:image/png;base64,' + content['girl'];
+          //document.body.appendChild(image);
+          $("#result3").empty().append(image);
+        });
+      });
+    </script>
 
   </body>
+
 </html>
